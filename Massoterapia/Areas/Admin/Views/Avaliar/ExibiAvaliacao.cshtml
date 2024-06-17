@@ -1,0 +1,35 @@
+﻿@model Massoterapia.Models.Avaliacao
+
+@{
+    ViewData["Title"] = "ExibiAvaliacao";
+}
+
+<h1>ExibiAvaliacao</h1>
+
+<div>
+    <h4>Avaliacao</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nota)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nota)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Comentario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Comentario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tratamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tratamento.TecnicaTratamento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" asp-controller="Tratamento">Voltar</a>
+</div>

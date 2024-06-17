@@ -1,0 +1,102 @@
+﻿
+@model IEnumerable<Massoterapia.Models.Tratamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<div class="d-flex justify-content-between">
+    @if (Context.User.IsInRole(Perfil.Cliente.ToString()))
+    {
+        <div>
+            <a asp-action="ExibeProfissionais" class="btn btn-success btn-sm">Novo Tratamento</a>
+    </div>
+    }
+    <form asp-action="Index">
+        <div class="row align-items-center">
+                     <div class="col-auto">
+                             <label class="form-label">Buscar</label>
+                     </div> 
+
+                    <div class="col-auto">
+                             <input type="search" id="busca" name="busca" class="form-control" />
+                      </div>
+       
+                    <div class="col-auto">
+          
+                               <input type="submit" value="Buscar" class="btn btn-primary btn-sm" />
+                    </div>
+        
+          </div> 
+    </form> 
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TecnicaTratamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TratamentoFinalizado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.profissional)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TecnicaTratamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TratamentoFinalizado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.profissional.Nome)
+            </td>
+
+            <td>
+             @if (Context.User.IsInRole(Perfil.Profissional.ToString()))
+            {
+                        <a asp-action="Exibe" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Exibir</a>
+                        <a asp-action="Altera" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Alterar</a>
+                        @if (item.TratamentoFinalizado == true)
+                        {
+                            <a asp-controller="Avaliar" asp-action="Inclui" asp-route-idtratamento="@item.Id" class="btn btn-secondary btn-sm">Avaliar</a>
+                        }
+            }
+
+             @if (Context.User.IsInRole(Perfil.Cliente.ToString()))
+            {
+                    <a asp-action="Exibe" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Exibir</a>
+                        @if (item.TratamentoFinalizado == false)
+                        {
+                            <a asp-action="Exclui" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Excluir</a>
+                        }
+
+                    @if(item.TratamentoFinalizado == true)
+                    {
+                        <a asp-controller="Avaliar" asp-action="Inclui" asp-route-idtratamento="@item.Id" class="btn btn-secondary btn-sm">Avaliar</a>
+                    }
+                    }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

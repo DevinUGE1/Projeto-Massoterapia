@@ -1,0 +1,227 @@
+﻿@* @model IEnumerable<Massoterapia.Models.Profissional>
+
+@{
+    ViewData["Title"] = "ExibeProfissionais";
+}
+
+<form asp-action="ExibeProfissionais">
+        <div class="row align-items-center">
+                     <div class="col-auto">
+                             <label class="form-label">Buscar</label>
+                     </div> 
+
+                    <div class="col-auto">
+                             <input type="search" id="busca" name="busca" class="form-control" />
+                      </div>
+       
+                    <div class="col-auto">
+          
+                               <input type="submit" value="Buscar" class="btn btn-primary btn-sm" />
+                    </div>
+        
+          </div> 
+
+    </form> 
+    <form asp-action="ExibeProfissionais">
+    <div class="colunas">
+        <div class="input-group">
+            <label for="Tratamento">Tratamento:</label>
+            <select name="busca" id="busca">
+                <option value="">Selecionar Massagem</option>
+                <option value="Cromoterapia">Cromoterapia</option>
+                <option value="Shiatsu">Shiatsu</option>
+                <option value="ShiatsuDaCadeira">ShiatsuDaCadeira</option>
+                <option value="DoIn">DoIn</option>
+                <option value="PedrasQuentesa">PedrasQuentesa</option>
+                <option value="BambuTerapia">BambuTerapia</option>
+                <option value="MassagemRelaxante">MassagemRelaxante</option>
+                <option value="QuickMassagem">QuickMassagem</option>
+                <option value="MassagemDesportiva">MassagemDesportiva</option>
+                <option value="MassagemModeladora">MassagemModeladora</option>
+                <option value="Reflexologia">Reflexologia</option>
+                <option value="Amaromaterapia">Amaromaterapia</option>
+                <option value="Maxoterapia">Maxoterapia</option>
+                <option value="VentoSaterapia">VentoSaterapia</option>
+                <option value="DrenagemLinfatica">DrenagemLinfatica</option>
+                <option value="TemAKinesioTape">TemAKinesioTape</option>
+            </select>
+                <input type="submit" value="Buscar" class="btn btn-primary btn-sm" />
+         </div>
+    </form> 
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cromoterapia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Shiatsu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShiatsuDaCadeira)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DoIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PedrasQuentes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BambuTerapia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MassagemRelaxante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuickMassagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MassagemDesportiva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MassagemModeladora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reflexologia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amaromaterapia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Maxoterapia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VentoSaterapia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Auriculoterapia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DrenagemLinfatica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TemAKinesioTape)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complemento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cromoterapia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shiatsu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShiatsuDaCadeira)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PedrasQuentes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BambuTerapia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MassagemRelaxante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuickMassagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MassagemDesportiva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MassagemModeladora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reflexologia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amaromaterapia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Maxoterapia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VentoSaterapia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Auriculoterapia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DrenagemLinfatica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TemAKinesioTape)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Complemento)
+            </td>
+            <td>
+
+                    <a asp-action="Inclui" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Agendar</a>
+                   
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@

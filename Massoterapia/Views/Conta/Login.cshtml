@@ -1,0 +1,56 @@
+﻿@model Massoterapia.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!--CDN BOOTSTRAP-->
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<!--CSS ESTILO-->
+<link rel="stylesheet" href="~/css/login.css" />
+
+<div class="container">
+    <div class="row">
+        <div class="container-sm col-4" >
+            <h1 class="mt-5" style="margin-top:40%!important">Login</h1>
+            <h4 class="pt-3 pb-3">Entre com sua conta</h4>
+            <hr />
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Senha" class="control-label"></label>
+                    <input asp-for="Senha" class="form-control" />
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
+                <div class="d-grid gap-2 mt-2" style="width:30%; margin:0 auto">
+                    <input type="submit" value="Entrar" class="btn btn-success">
+                </div>
+                <div class="form-group text-center mt-3">
+                    <p>
+                        Não é registrado? Registre-se como <br />
+                        <a asp-action="Registro" asp-route-perfil="@Perfil.Cliente">Cliente</a>
+                        ou
+                        <a asp-action="Registro" asp-route-perfil="@Perfil.Profissional">Profissional</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <!--CDN JS BOOTSTRAP-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

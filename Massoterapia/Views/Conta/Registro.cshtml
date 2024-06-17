@@ -1,0 +1,263 @@
+﻿@model Massoterapia.Models.RegistroViewModel
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+
+<!--CDN BOOTSTRAP-->
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<!--CSS ESTILO-->
+<link rel="stylesheet" href="~/css/registro.css" />
+
+
+
+<div class="col-md-12 d-flex justify-content-center">
+    <h1>Registro</h1>
+    <hr />
+</div> 
+
+<div class="container d-flex justify-content-center mb-5">
+    <div class="col-md-6">
+        <form asp-action="Registro">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Perfil" />
+            <fieldset>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="d-flex">
+                <div class="col-lg-4 pe-4">
+                        <div class="form-group">
+                            <label asp-for="Telefone" class="control-label"></label>
+                            <input asp-for="Telefone" class="form-control" />
+                            <span asp-validation-for="Telefone" class="text-danger"></span>
+                        </div>
+                </div>
+                <div class="col-lg-8">
+                        <div class="form-group pt-2">
+                            <label asp-for="Celular" class="control-label"></label>
+                            <input asp-for="Celular" class="form-control" />
+                            <span asp-validation-for="Celular" class="text-danger"></span>
+                        </div>
+                </div>                  
+            </div>
+           
+                    <div class="form-group pt-1">
+                        <label asp-for="Sexo" class="control-label"></label>
+                    <select asp-for="Sexo"  class="form-control">
+
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+ 
+                    </select>
+                    <span asp-validation-for="Sexo" class="text-danger"></span>
+                    </div>
+            <div class="form-group pt-2">
+                <label asp-for="DataNascimento" class="control-label"></label>
+                <input asp-for="DataNascimento" class="form-control" />
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+            @if (Model.Perfil == Perfil.Profissional)
+            {
+               <div class="d-flex form-group pt-1">
+                        <div class="col-lg-6">
+                           
+                            <div>
+                                <input asp-for="@Model.Cromoterapia" />
+                                <span asp-validation-for="Cromoterapia" class="text-danger"></span>
+                                <b> <label asp-for="Cromoterapia" class="control-label"></label> </b>
+                              
+                            </div>
+                                                    
+                            <div>
+                                <input asp-for="@Model.Shiatsu" />
+                                <b> <label asp-for="Shiatsu" class="control-label"></label></b>
+                                <span asp-validation-for="Shiatsu" class="text-danger"></span>
+                            </div>
+                          
+                            <div>
+                                <input asp-for="@Model.ShiatsuDaCadeira" />
+                                <b> <label>Shiatsu na Cadeira</label></b>
+                                <label asp-for="ShiatsuDaCadeira" class="control-label" style="display:none"></label>                              
+                            </div>
+                         
+                            <div>
+                                <input asp-for="@Model.DoIn" />
+                                @* <b> <label asp-for="DoIn" class="control-label"></label> </b> *@
+                                <b><label>Do In</label></b>
+                            </div>
+                            <span asp-validation-for="DoIn" class="text-danger"></span>
+                           
+                            <div>
+                                <input asp-for="@Model.PedrasQuentes" />
+                                <b><label>Pedras Quentes</label></b>
+                                <label asp-for="PedrasQuentes" class="control-label" style="display:none"></label>
+                                
+                            </div>
+                            <span asp-validation-for="PedrasQuentes" class="text-danger"></span>
+                           
+                            <div>
+                                <input asp-for="@Model.BambuTerapia" />
+                                <b><label>Bambuterapia</label></b>
+                                <label asp-for="BambuTerapia" class="control-label" style="display:none"></label>
+                               
+                            </div>
+                            <span asp-validation-for="BambuTerapia" class="text-danger"></span>
+                           
+                            <div>
+                                <input asp-for="@Model.MassagemRelaxante" />
+                                <b><label>Massagem Relaxante</label></b>
+                                <label asp-for="MassagemRelaxante" class="control-label" style="display:none"></label>                              
+                            </div>
+                            <span asp-validation-for="MassagemRelaxante" class="text-danger"></span>
+
+                           
+                            <div>
+                                <input asp-for="@Model.QuickMassagem" />
+                                <b><label>Quick Massagem</label></b>
+                                <label asp-for="QuickMassagem" class="control-label" style="display:none"></label>                               
+                            </div>
+                            <span asp-validation-for="QuickMassagem" class="text-danger"></span>
+
+                           
+                            <div>
+                                <input asp-for="@Model.MassagemDesportiva" />
+                                <b><label>Massagem Desportiva</label></b>
+                                <label asp-for="MassagemDesportiva" class="control-label" style="display:none"></label>                             
+                            </div>
+                            <span asp-validation-for="MassagemDesportiva" class="text-danger"></span>
+                      
+                  </div>
+                        <div class="col-lg-6">
+                          
+                            <div>
+                                <input asp-for="@Model.MassagemModeladora" />
+                                <b><label>Massagem Modeladora</label></b>
+                                <label asp-for="MassagemModeladora" class="control-label" style="display:none"></label>                               
+                            </div>
+                            <span asp-validation-for="MassagemModeladora" class="text-danger"></span>
+                          
+                            <div>
+                                <input asp-for="@Model.Reflexologia" />
+                                <b><label asp-for="Reflexologia" class="control-label"></label></b>
+                            </div>
+                            <span asp-validation-for="Reflexologia" class="text-danger"></span>
+                           
+                            <div>
+                                <input asp-for="@Model.Amaromaterapia" />
+                                <b><label asp-for="Amaromaterapia" class="control-label"></label></b>
+                               
+                            </div>
+                            <span asp-validation-for="Amaromaterapia" class="text-danger"></span>
+
+                            <div>
+                                <input asp-for="@Model.Maxoterapia" />
+                                <b><label asp-for="Maxoterapia" class="control-label"></label></b>
+                            </div>
+                            <span asp-validation-for="Maxoterapia" class="text-danger"></span>
+                         
+                            <div>
+                                <input asp-for="@Model.VentoSaterapia" />
+                                <b><label>Ventosaterapia</label></b>
+                                <label asp-for="VentoSaterapia" class="control-label" style="display:none"></label>                               
+                            </div>
+                            <span asp-validation-for="VentoSaterapia" class="text-danger"></span>
+                            
+                            <div>
+                                <input asp-for="@Model.Auriculoterapia" />
+                                <b><label>Auriculoterapia</label></b>
+                                <label asp-for="Auriculoterapia" class="control-label" style="display:none"></label>                             
+                            </div>
+                            <span asp-validation-for="Auriculoterapia" class="text-danger"></span>
+                           
+                            <div>
+                                <input asp-for="@Model.DrenagemLinfatica" />
+                                <b><label>Drenagem Linfatica</label></b>
+                                <label asp-for="DrenagemLinfatica" class="control-label" style="display:none"></label>                              
+                            </div>
+                            <span asp-validation-for="DrenagemLinfatica" class="text-danger"></span>
+                           
+                            <div>
+                                <input asp-for="@Model.TemAKinesioTape" />
+                                <b><label asp-for="TemAKinesioTape" class="control-label"></label></b>
+                            </div>
+                            <span asp-validation-for="TemAKinesioTape" class="text-danger"></span>
+                        </div>                                             
+               </div>
+               <div class="d-flex">
+                   <div class="col-lg-4 pe-4">
+                            <div class="form-group pt-1">
+                                <label asp-for="Cep" class="control-label"></label>
+                                <input asp-for="Cep" class="form-control" />
+                                <span asp-validation-for="Cep" class="text-danger"></span>
+                            </div>
+                   </div>
+                       <div class="col-lg-8">
+                            <div class="form-group pt-1">
+                                <label asp-for="Bairro" class="control-label"></label>
+                                <input asp-for="Bairro" class="form-control" />
+                                <span asp-validation-for="Bairro" class="text-danger"></span>
+                            </div>
+                       </div>                       
+               </div>           
+                <div class="form-group pt-1">
+                    <label asp-for="Rua" class="control-label"></label>
+                    <input asp-for="Rua" class="form-control" />
+                    <span asp-validation-for="Rua" class="text-danger"></span>
+                </div>
+                <div class="col-lg-8">
+                    <div class="col-lg-4 pe-4">
+                            <div class="form-group pt-1">
+                                <label asp-for="Numero" class="control-label"></label>
+                                <input asp-for="Numero" class="form-control" />
+                                <span asp-validation-for="Numero" class="text-danger"></span>
+                            </div>
+                    </div>
+                  <div class="col-lg-8">
+                        <div class="form-group pt-1">
+                            <label asp-for="Complemento" class="control-label"></label>
+                            <input asp-for="Complemento" class="form-control" />
+                            <span asp-validation-for="Complemento" class="text-danger"></span>
+                        </div>
+                    </div>                                  
+                </div>             
+            }
+               <div class="d-flex">
+                   <div class="col-lg-4 pe-4">
+                        <div class="form-group pt-1">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                   </div>
+                 <div class="col-lg-4">
+                        <div class="form-group pt-1">
+                            <label asp-for="Senha" class="control-label"></label>
+                            <input asp-for="Senha" class="form-control" />
+                            <span asp-validation-for="Senha" class="text-danger"></span>
+                        </div>
+                  </div>                              
+               </div>       
+               
+                <div class="form-group pt-1">
+                    <label asp-for="Perfil" class="control-label"></label>
+                    <select asp-for="Perfil" asp-items="@Html.GetEnumSelectList<Perfil>()" class="form-control" disabled></select>
+                </div>
+
+                <div class="form-group pt-2 pb-2">
+                    <input type="submit" value="Registrar" class="btn btn-primary" />
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <!--CDN JS BOOTSTRAP-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MassoterapiaAqui</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~
+" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <<nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <img src="/images/img-logo.jpg" alt="Logo do site">
+                <a class="navbar-brand" style="margin-left:7px" asp-area="admin" asp-controller="Home" asp-action="Index">MassoterapiaAqui</a>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul b-mkhaf7ciqk="" class="navbar-nav mx-auto mb-2 mb-lg-0" style="width:400px">
+                        <li class="nav-item">
+                            <b><a class="nav-link text-dark" asp-area="admin" asp-controller="Home" asp-action="Index">Home</a></b>
+                        </li>
+                        <li class="nav-item">
+                            <b><a class="nav-link text-dark" asp-area="admin" asp-controller="Home" asp-action="QuemSomos">Quem Somos</a></b>
+                        </li>
+                        <li class="nav-item">
+                            <b><a class="nav-link text-dark" asp-area="admin" asp-controller="Home" asp-action="Oquee">O que é?</a></b>
+                        </li>
+                        <li class="nav-item">
+                            <b><a class="nav-link text-dark" asp-area="admin" asp-controller="Tratamento" asp-action="Index">Agenda</a></b>
+                        </li>
+@*                         <li class="nav-item">
+                            <b><a class="nav-link text-dark" asp-area="admin" asp-controller="Avaliar" asp-action="Index">Avaliação</a></b>
+                        </li> *@
+                    </ul>
+                        <span class="navbar-text">
+                            <div class="d-flex">
+                                <small>@Context.User.Identity.Name</small>
+                            </div>
+                            <a asp-action="Logout" asp-controller="Conta" asp-area="Default" class="btn btn-danger">Sair</a>
+                        
+                       </span>                                                                     
+                </div>
+            </div>
+        </nav>
+    </header>
+            @if (Context.User.IsInRole(Perfil.Administrador.ToString()))
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Admin" asp-controller="Usuario" asp-action="Index">
+                        Usuários
+                    </a>
+                </li>
+            }
+            @if (Context.User.IsInRole(Perfil.Cliente.ToString()))
+            {
+                          
+            }
+
+             @if (Context.User.IsInRole(Perfil.Profissional.ToString()))
+            {
+                
+            }
+
+  
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            MassoterapiaAqui - Criado por Devin Gamboa Enciso.
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
